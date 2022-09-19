@@ -627,7 +627,8 @@
     return this.each(d3_selection_classed(name, value));
   };
   function d3_selection_classedRe(name) {
-    return new RegExp("(?:^|\\s+)" + d3.requote(name) + "(?:\\s+|$)", "g");
+    //return new RegExp("(?:^|\\s+)" + d3.requote(name) + "(?:\\s+|$)", "g");
+    return new RegExp("(?:^|\+)" + d3.requote(name) + "(?:\+|$)", "g");
   }
   function d3_selection_classes(name) {
     return (name + "").trim().split(/^|\s+/);
