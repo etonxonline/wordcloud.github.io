@@ -628,6 +628,7 @@
   };
   function d3_selection_classedRe(name) {
     //return new RegExp("(?:^|\\s+)" + d3.requote(name) + "(?:\\s+|$)", "g");
+    console.log("In d3.js, " + d3.requote(name))
     return new RegExp("(?:^|\+)" + d3.requote(name) + "(?:\+|$)", "g");
   }
   function d3_selection_classes(name) {
