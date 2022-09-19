@@ -181,7 +181,7 @@ function getWordcloudWords()
 function printWordcloudInput(wordcloudInput)
 {
    html = '<input id="name" type="text" size="120" data-role="tagsinput"></input>';
-   html +=' <button id="send" class="button-success">Submit</button>';
+   html +=' <button id="send" class="btn btn-primary">Submit</button>';
 
    wordcloudInput.html(html);
 }
