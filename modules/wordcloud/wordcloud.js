@@ -254,6 +254,9 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
+	console.log("data: ", data);
+	data = data.replace(/\s+/g,"_");
+	console.log("data: ", data);
   var data2 =   encodeURIComponent( data );
 	console.log("data2: ", data2);
 	data2 = data2.replace(/\s+/g,"_");
