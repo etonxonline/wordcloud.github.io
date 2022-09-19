@@ -254,11 +254,11 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
-  //var data2 =   encodeURIComponent( data );
-  //console.log(data2);
-	console.log("data: ", data);
-  //var postData = "name="+data2;
-	var postData = "name="+data;
+  var data2 =   encodeURIComponent( data );
+	console.log("data2: ", data2);
+	data2 = data2.replace(/\s+/g,"_");
+	console.log("data2: ", data2);
+  var postData = "name="+data2;
 	console.log(postData);
 	postData = decodeURI(postData)
   console.log(postData);

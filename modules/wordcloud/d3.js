@@ -607,7 +607,7 @@
     return value == null ? name.local ? attrNullNS : attrNull : typeof value === "function" ? name.local ? attrFunctionNS : attrFunction : name.local ? attrConstantNS : attrConstant;
   }
   function d3_collapse(s) {
-    return s.trim()//.replace(/\s+/g, " ");
+    return s.trim().replace(/\s+/g, " ");
   }
   d3_selectionPrototype.classed = function(name, value) {
     if (arguments.length < 2) {
@@ -627,9 +627,7 @@
     return this.each(d3_selection_classed(name, value));
   };
   function d3_selection_classedRe(name) {
-    //return new RegExp("(?:^|\\s+)" + d3.requote(name) + "(?:\\s+|$)", "g");
-    console.log("In d3.js, " + d3.requote(name))
-    return new RegExp("(?:^|\+)" + d3.requote(name) + "(?:\+|$)", "g");
+    return new RegExp("(?:^|\\s+)" + d3.requote(name) + "(?:\\s+|$)", "g");
   }
   function d3_selection_classes(name) {
     return (name + "").trim().split(/^|\s+/);
