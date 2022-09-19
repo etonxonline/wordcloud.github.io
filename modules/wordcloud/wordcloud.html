@@ -14,10 +14,17 @@
 
   .input-group {
     text-align:center;
+    display: inline-block;
     font-size: 130%;
 }
-
+ .col-lg-3 {
+   width: 100%;
+   display: inline-block;
+   margin: auto;
+   text-align:center;
+ }
 	.svg-container {
+  text-align:center;
 	display: inline-block;
 	position: relative;
 	width: 100%;
@@ -36,10 +43,11 @@
 
 <body style="background-color:transparent">
   <div class="row">
-    <h1>Influence Word Cloud</h1>
       <div class="col-lg-3">
           <div class="input-group">
+            <br>
               <div id="wordcloudInput"></div>
+              <br>
           </div>
       </div>
   </div>
