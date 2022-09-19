@@ -190,7 +190,6 @@ function getAllUrlParams(url) {
 
   // get query string from url (optional) or window
   var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-	console.log('queryString: ',queryString);
   // we'll store the parameters here
   var obj = {};
 
@@ -199,10 +198,8 @@ function getAllUrlParams(url) {
 
     // stuff after # is not part of query string, so get rid of it
     queryString = queryString.split('#')[0];
-		console.log('queryString.split: ',queryString);
     // split our query string into its component parts
     var arr = queryString.split('&');
-		console.log('arr: ',arr);
     for (var i=0; i<arr.length; i++) {
       // separate the keys and the values
       var a = arr[i].split('=');
@@ -213,7 +210,6 @@ function getAllUrlParams(url) {
         paramNum = v.slice(1,-1);
         return '';
       });
-			console.log('paramName: ',paramName);
 
       // set parameter value (use 'true' if empty)
       var paramValue = typeof(a[1])==='undefined' ? true : a[1];
@@ -254,17 +250,12 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
-	console.log("data: ", data);
+	//console.log("data: ", data);
 	data = data.replace(/\s+/g,"_");
-	console.log("data: ", data);
+	//console.log("data: ", data);
   var data2 =   encodeURIComponent( data );
-	console.log("data2: ", data2);
-	data2 = data2.replace(/\s+/g,"_");
-	console.log("data2: ", data2);
   var postData = "name="+data2;
 	console.log(postData);
-	postData = decodeURI(postData)
-  console.log(postData);
 
 	request = $.ajax({
 		url: actionScript,
