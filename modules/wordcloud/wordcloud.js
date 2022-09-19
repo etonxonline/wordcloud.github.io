@@ -254,9 +254,10 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
-  var data2 =   encodeURIComponent( data );
+  //var data2 =   encodeURIComponent( data );
   console.log(data2);
-  var postData = "name="+data2;
+  //var postData = "name="+data2;
+	var postData = "name="+data;
 	console.log(postData);
 	postData = decodeURI(postData)
   console.log(postData);
