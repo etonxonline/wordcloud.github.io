@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,10 @@
 	<script src='wordcloud.js'></script>
 	<style>
 
-  .input-area {
-    display: inline-block;
+  .input-group {
+    text-align:center;
     font-size: 130%;
-    margin: auto;
-    text-align: center;
-  }
+}
 
 	.svg-container {
 	display: inline-block;
@@ -37,7 +35,13 @@
 </head>
 
 <body style="background-color:transparent">
-<div id="wordcloudInput" class="input-area"></div>
+  <div class="row">
+      <div class="col-lg-3">
+          <div class="input-group">
+              <div id="wordcloudInput"></div>
+          </div>
+      </div>
+  </div>
 <div id="wordcloud" class="svg-container"></div>
 <script src="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 
