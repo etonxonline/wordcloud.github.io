@@ -60,7 +60,7 @@ function printWordcloud()
     console.log('Words = ', words)
     var calculateFontSize = d3.scale.linear()
 		.domain([startDomain, stopDomain])
-		.range([10, 100]);
+		.range([10, 93]);
 
 
 //https://github.com/jasondavies/d3-cloud/pull/128
