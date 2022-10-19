@@ -114,6 +114,7 @@ function getWordcloudWords()
 
 		beforeSend: function () {
 			console.log("Loading");
+			console.log("words = ", words)
 		},
 
 		error: function (jqXHR, textStatus, errorThrown) {
