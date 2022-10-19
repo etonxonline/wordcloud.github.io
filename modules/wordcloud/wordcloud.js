@@ -145,9 +145,11 @@ function getWordcloudWords()
 			  previousWord = data[0]["text"];
 			  word = previousWord;
 			}
+			console.log('word', word)
 			for(var i = 1; i< data.length; i++)
 			{
 				var word = data[i]["text"];
+				console.log('word', word)
 				if(previousWord != word)
 				{
 					var wordObject = {text: previousWord, size: size};
