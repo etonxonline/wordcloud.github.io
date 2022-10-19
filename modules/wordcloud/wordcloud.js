@@ -58,6 +58,7 @@ function printWordcloud()
 	  stopDomain = words[words.length - 1].size;
     }
     console.log('Words = ', words)
+    words = words.replace("_"," ");
     var calculateFontSize = d3.scale.linear()
 		.domain([startDomain, stopDomain])
 		.range([10, 93]);
