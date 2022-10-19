@@ -143,7 +143,7 @@ function getWordcloudWords()
 			if(data.length)
 			{
 			  previousWord = data[0]["text"];
-			  previousWord = previousWord.replace("_", " ")
+			  previousWord = previousWord.replaceAll("_", " ")
 			  word = previousWord;
 			}
 			console.log('word', word)
@@ -151,7 +151,7 @@ function getWordcloudWords()
 			{
 				var word = data[i]["text"];
 				console.log('word', word)
-				word = word.replace("_", " ")
+				word = word.replaceAll("_", " ")
 				console.log('new word', word)
 				if(previousWord != word)
 				{
