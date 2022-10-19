@@ -69,7 +69,7 @@ function printWordcloud()
 	var fill = d3.scale.category20();
 
 	var layout = d3.layout.cloud()
-		.size([500, 500])
+		.size([700, 700])
 		.words(words)
 		.padding(5)
 		.rotate(function() { return 0; })
