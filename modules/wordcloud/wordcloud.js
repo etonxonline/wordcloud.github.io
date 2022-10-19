@@ -61,7 +61,7 @@ function printWordcloud()
     
     var calculateFontSize = d3.scale.linear()
 		.domain([startDomain, stopDomain])
-		.range([10, 93]);
+		.range([15, 95]);
 
 
 //https://github.com/jasondavies/d3-cloud/pull/128
@@ -128,7 +128,7 @@ function getWordcloudWords()
 		success: function (result) {
 			console.log('result.result');
 			var data = JSON.parse(result.data);
-			console.log(data);
+			//console.log(data);
 
 			data.sort(function(item1, item2){
 				if (item1.text < item2.text)
@@ -146,13 +146,10 @@ function getWordcloudWords()
 			  previousWord = previousWord.replaceAll("_", " ")
 			  word = previousWord;
 			}
-			console.log('word', word)
 			for(var i = 1; i< data.length; i++)
 			{
 				var word = data[i]["text"];
-				console.log('word', word)
 				word = word.replaceAll("_", " ")
-				console.log('new word', word)
 				if(previousWord != word)
 				{
 					var wordObject = {text: previousWord, size: size};
