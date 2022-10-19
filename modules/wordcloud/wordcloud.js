@@ -256,7 +256,7 @@ function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
 	console.log("data: ", data);
-	//data = data.replace(/\s+/g,"_");
+	data = data.replace(/\s+/g,"_");
 	console.log("data: ", data);
   var data2 =   encodeURIComponent( data );
   var postData = "name="+data2;
