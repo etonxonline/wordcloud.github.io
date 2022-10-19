@@ -58,7 +58,7 @@ function printWordcloud()
 	  stopDomain = words[words.length - 1].size;
     }
     console.log('Words = ', words)
-    words = words.replace("_"," ");
+    
     var calculateFontSize = d3.scale.linear()
 		.domain([startDomain, stopDomain])
 		.range([10, 93]);
@@ -253,9 +253,9 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
-	//console.log("data: ", data);
+	console.log("data: ", data);
 	data = data.replace(/\s+/g,"_");
-	//console.log("data: ", data);
+	console.log("data: ", data);
   var data2 =   encodeURIComponent( data );
   var postData = "name="+data2;
 	console.log(postData);
