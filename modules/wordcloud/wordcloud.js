@@ -57,8 +57,7 @@ function printWordcloud()
   	  startDomain = words[0].size;
 	  stopDomain = words[words.length - 1].size;
     }
-    console.log('startDomain = ', startDomain)
-    console.log('stopDomain = ', stopDomain)
+    console.log('Words = ', words)
     var calculateFontSize = d3.scale.linear()
 		.domain([startDomain, stopDomain])
 		.range([10, 100]);
