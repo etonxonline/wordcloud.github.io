@@ -255,6 +255,7 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
+	console.log("Raw data: ", data);
 	data = data.toLowerCase();
 	var dataArray = data.split(",");
 	// Loop through the array and apply trim() to each element
@@ -264,9 +265,9 @@ function handleSend(event) {
 
 	// Join the array back into a string using commas
 	data = dataArray.join(",");
-	console.log("data: ", data);
+	console.log("Data trimmed: ", data);
 	data = data.replace(/\s+/g,"_");
-	console.log("data: ", data);
+	console.log("Data finalised: ", data);
   var data2 =   encodeURIComponent( data );
   var postData = "name="+data2;
 	console.log(postData);
