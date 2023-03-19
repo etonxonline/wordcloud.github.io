@@ -255,6 +255,8 @@ function displayLoadingIcon()
 function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
+	data = data.toLowerCase();
+	data = data.trim();
 	console.log("data: ", data);
 	data = data.replace(/\s+/g,"_");
 	console.log("data: ", data);
