@@ -256,7 +256,14 @@ function handleSend(event) {
   displayLoadingIcon();
   var data = $("#name").val();
 	data = data.toLowerCase();
-	data = data.trim();
+	var dataArray = data.split(",");
+	// Loop through the array and apply trim() to each element
+	for (var i = 0; i < dataArray.length; i++) {
+		dataArray[i] = dataArray[i].trim();
+	}
+
+	// Join the array back into a string using commas
+	data = dataArray.join(",");
 	console.log("data: ", data);
 	data = data.replace(/\s+/g,"_");
 	console.log("data: ", data);
