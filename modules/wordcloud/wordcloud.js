@@ -277,8 +277,7 @@ function handleSend(event) {
 
 		beforeSend: function () {
 			console.log("Loading");
-			$('.bootstrap-tagsinput').val('');
-			console.log("Blank input box")
+
 		},
 
 		error: function (jqXHR, textStatus, errorThrown) {
