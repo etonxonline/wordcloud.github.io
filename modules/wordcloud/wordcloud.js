@@ -297,7 +297,7 @@ function handleSend(event) {
             console.log('Finished all tasks');
         }
     });
-    $('#wordcloudInput').tagsinput('removeAll');
+    $(".input-group").hide();
     console.log("Remove the submission box once submitted")
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
     //console.log("Remove previous tags now");
