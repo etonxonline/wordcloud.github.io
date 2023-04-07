@@ -104,70 +104,83 @@ function printWordcloud()
 
 
 
-function getWordcloudWords() {
-    words = [];
+function getWordcloudWords()
+{
+	words = [];
     displayLoadingIcon();
 
-    $.ajax({
-        url: actionScript,
-        dataType: 'json',
-        cache: false
-    })
-    .then(function(result) {
-        console.log('result.result');
-        var data = JSON.parse(result.data);
-        //console.log(data);
+	$.ajax({
+		url: actionScript,
+		dataType: 'json',
+		cache: false,
 
-        data.sort(function(item1, item2) {
-            if (item1.text < item2.text)
-                return -1;
-            if (item1.text > item2.text)
-                return 1;
-            return 0;
-        });
-        var size = 1;
-        var previousWord = "";
-        var word = "";
-        if (data.length) {
-            previousWord = data[0]["text"];
-            previousWord = previousWord.replaceAll("_", " ")
-            word = previousWord;
-        }
-        for (var i = 1; i < data.length; i++) {
-            var word = data[i]["text"];
-            word = word.replaceAll("_", " ")
-            if (previousWord != word) {
-                var wordObject = { text: previousWord, size: size };
-                words.push(wordObject);
-                previousWord = word;
-                size = 1;
-            } else {
-                size = size + 1;
-            }
-        }
-        var wordObject = { text: word, size: size };
-        words.push(wordObject);
+		beforeSend: function () {
+			console.log("Loading");
+			console.log("words = ", words)
+		},
 
-        words.sort(function(item1, item2) {
-            if (item1.size < item2.size)
-                return -1;
-            if (item1.size > item2.size)
-                return 1;
-            return 0;
-        });
-        printWordcloud();
-        return true;
-    })
-    .then(function() {
-        sendResizeMessageToParent();
-        $(".bootstrap-tagsinput").tagsinput('removeAll');
-        console.log("Empty input box")
-    })
-    .catch(function(error) {
-        console.log(error);
-    });
+		error: function (jqXHR, textStatus, errorThrown) {
+			console.log(jqXHR);
+			console.log(textStatus);
+			console.log(errorThrown);
+		},
+
+		success: function (result) {
+			console.log('result.result');
+			var data = JSON.parse(result.data);
+			//console.log(data);
+
+			data.sort(function(item1, item2){
+				if (item1.text < item2.text)
+				  return -1;
+				if ( item1.text > item2.text)
+				  return 1;
+				return 0;
+			});
+			var size = 1;
+			var previousWord = "";
+			var word = "";
+			if(data.length)
+			{
+			  previousWord = data[0]["text"];
+			  previousWord = previousWord.replaceAll("_", " ")
+			  word = previousWord;
+			}
+			for(var i = 1; i< data.length; i++)
+			{
+				var word = data[i]["text"];
+				word = word.replaceAll("_", " ")
+				if(previousWord != word)
+				{
+					var wordObject = {text: previousWord, size: size};
+					words.push(wordObject);
+					previousWord = word;
+					size = 1;
+				}
+				else
+				{
+					size = size + 1;
+				}
+			}
+			var wordObject = {text: word, size: size};
+			words.push(wordObject);
+
+			words.sort(function(item1, item2){
+				if (item1.size < item2.size)
+				  return -1;
+				if ( item1.size > item2.size)
+				  return 1;
+				return 0;
+			});
+			printWordcloud();
+			sendResizeMessageToParent();
+		},
+
+		complete: function () {
+			console.log('Finished all tasks');
+		}
+	});
 }
-
 
 function printWordcloudInput(wordcloudInput)
 {
@@ -239,48 +252,50 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
-	displayLoadingIcon();
-	var data = $("#name").val();
-	console.log("Raw data: ", data);
-	data = data.toLowerCase();
-	var dataArray = data.split(",");
-	
-	// Loop through the array and apply trim() to each element
-	for (var i = 0; i < dataArray.length; i++) {
-		dataArray[i] = dataArray[i].trim();
-	}
+    displayLoadingIcon();
+    var data = $("#name").val();
+    console.log("Raw data: ", data);
+    data = data.toLowerCase();
+    var dataArray = data.split(",");
+    
+    // Loop through the array and apply trim() to each element
+    for (var i = 0; i < dataArray.length; i++) {
+        dataArray[i] = dataArray[i].trim();
+    }
 
-	// Join the array back into a string using commas
-	data = dataArray.join(",");
-	console.log("Data trimmed: ", data);
-	data = data.replace(/\s+/g,"_");
-	console.log("Data finalised: ", data);
-	var data2 =   encodeURIComponent( data );
-	var postData = "name="+data2;
-	console.log(postData);
-	request = $.ajax({
-		url: actionScript,
-		type: "post",
-		data: postData,
+    // Join the array back into a string using commas
+    data = dataArray.join(",");
+    console.log("Data trimmed: ", data);
+    data = data.replace(/\s+/g,"_");
+    console.log("Data finalised: ", data);
+    var data2 = encodeURIComponent(data);
+    var postData = "name=" + data2;
+    console.log(postData);
+    request = $.ajax({
+        url: actionScript,
+        type: "post",
+        data: postData,
 
-		beforeSend: function () {
-			console.log("Loading");
-		},
+        beforeSend: function () {
+            console.log("Loading");
+        },
 
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		},
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
 
-		success: function (result) {
-			console.log("success");
-			$("#wordcloud").show();
-			getWordcloudWords();
-		},
+        success: function (result) {
+            console.log("success");
+            $("#wordcloud").show();
+            getWordcloudWords(printWordcloud);
+        },
 
-		complete: function () {
-			console.log('Finished all tasks');
-		}
-	});
+        complete: function () {
+            console.log('Finished all tasks');
+        }
+    });
+    $(".bootstrap-tagsinput").tagsinput('removeAll');
+    console.log("Remove previous tags now");
 }
