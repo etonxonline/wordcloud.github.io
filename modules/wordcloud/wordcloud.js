@@ -290,7 +290,6 @@ function handleSend(event) {
 		success: function (result) {
 			console.log("success");
 			$("#wordcloud").show();
-			
 			getWordcloudWords();
 		},
 
