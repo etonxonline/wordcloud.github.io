@@ -14,7 +14,7 @@ var words = [];
 $(document).ready(function(){
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
-		printWordcloud(wordcloudInput);
+		printWordcloudInput(wordcloudInput);
 	}
     var sendButton = $("#send");
     if(sendButton != null)
