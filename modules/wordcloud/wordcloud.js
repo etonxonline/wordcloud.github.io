@@ -4,7 +4,6 @@
 var params = getAllUrlParams(window.location.href);
 var actionScript = params.scriptUrl;
 var hide = false;
-var wordcloudInput = "";
 if (params.hide != null)
 {
 	hide = true;
@@ -183,6 +182,8 @@ function getWordcloudWords()
 	});
 }
 
+
+function printWordcloudInput(wordcloudInput)
 {
    html = '<input id="name" type="text" size="120" data-role="tagsinput"></input>';
    html +=' <button id="send" class="btn btn-primary">Submit</button>';
@@ -278,7 +279,6 @@ function handleSend(event) {
 
 		beforeSend: function () {
 			console.log("Loading");
-
 		},
 
 		error: function (jqXHR, textStatus, errorThrown) {
