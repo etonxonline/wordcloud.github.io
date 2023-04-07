@@ -104,82 +104,68 @@ function printWordcloud()
 
 
 
-function getWordcloudWords()
-{
-	words = [];
+function getWordcloudWords() {
+    words = [];
     displayLoadingIcon();
 
-	$.ajax({
-		url: actionScript,
-		dataType: 'json',
-		cache: false,
+    $.ajax({
+        url: actionScript,
+        dataType: 'json',
+        cache: false
+    })
+    .then(function(result) {
+        console.log('result.result');
+        var data = JSON.parse(result.data);
+        //console.log(data);
 
-		beforeSend: function () {
-			console.log("Loading");
-			console.log("words = ", words)
-		},
+        data.sort(function(item1, item2) {
+            if (item1.text < item2.text)
+                return -1;
+            if (item1.text > item2.text)
+                return 1;
+            return 0;
+        });
+        var size = 1;
+        var previousWord = "";
+        var word = "";
+        if (data.length) {
+            previousWord = data[0]["text"];
+            previousWord = previousWord.replaceAll("_", " ")
+            word = previousWord;
+        }
+        for (var i = 1; i < data.length; i++) {
+            var word = data[i]["text"];
+            word = word.replaceAll("_", " ")
+            if (previousWord != word) {
+                var wordObject = { text: previousWord, size: size };
+                words.push(wordObject);
+                previousWord = word;
+                size = 1;
+            } else {
+                size = size + 1;
+            }
+        }
+        var wordObject = { text: word, size: size };
+        words.push(wordObject);
 
-		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(jqXHR);
-			console.log(textStatus);
-			console.log(errorThrown);
-		},
-
-		success: function (result) {
-			console.log('result.result');
-			var data = JSON.parse(result.data);
-			//console.log(data);
-
-			data.sort(function(item1, item2){
-				if (item1.text < item2.text)
-				  return -1;
-				if ( item1.text > item2.text)
-				  return 1;
-				return 0;
-			});
-			var size = 1;
-			var previousWord = "";
-			var word = "";
-			if(data.length)
-			{
-			  previousWord = data[0]["text"];
-			  previousWord = previousWord.replaceAll("_", " ")
-			  word = previousWord;
-			}
-			for(var i = 1; i< data.length; i++)
-			{
-				var word = data[i]["text"];
-				word = word.replaceAll("_", " ")
-				if(previousWord != word)
-				{
-					var wordObject = {text: previousWord, size: size};
-					words.push(wordObject);
-					previousWord = word;
-					size = 1;
-				}
-				else
-				{
-					size = size + 1;
-				}
-			}
-			var wordObject = {text: word, size: size};
-			words.push(wordObject);
-
-			words.sort(function(item1, item2){
-				if (item1.size < item2.size)
-				  return -1;
-				if ( item1.size > item2.size)
-				  return 1;
-				return 0;
-			});
-			printWordcloud();
-			sendResizeMessageToParent();
-		},
-
-		complete: function () {
-			console.log('Finished all tasks');
-		}
-	});
+        words.sort(function(item1, item2) {
+            if (item1.size < item2.size)
+                return -1;
+            if (item1.size > item2.size)
+                return 1;
+            return 0;
+        });
+        printWordcloud();
+        return true;
+    })
+    .then(function() {
+        sendResizeMessageToParent();
+        $('.bootstrap-tagsinput').val('');
+        console.log("Blank input box")
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
 }
 
 
@@ -297,6 +283,4 @@ function handleSend(event) {
 			console.log('Finished all tasks');
 		}
 	});
-	$(".bootstrap-tagsinput").tagsinput('removeAll');
-	console.log("Remove previous tags now")
 }
