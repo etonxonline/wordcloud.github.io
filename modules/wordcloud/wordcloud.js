@@ -277,6 +277,8 @@ function handleSend(event) {
 
 		beforeSend: function () {
 			console.log("Loading");
+			$('.bootstrap-tagsinput').val('');
+			console.log("Blank input box")
 		},
 
 		error: function (jqXHR, textStatus, errorThrown) {
@@ -288,8 +290,7 @@ function handleSend(event) {
 		success: function (result) {
 			console.log("success");
 			$("#wordcloud").show();
-			$('.bootstrap-tagsinput').val('');
-			console.log("Blank input box")
+			
 			getWordcloudWords();
 		},
 
