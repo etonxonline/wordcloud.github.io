@@ -20,6 +20,7 @@ $(document).ready(function(){
     if(sendButton != null)
     {
 		sendButton.click(handleSend);
+	    	$('#wordcloudInput').val('');
     }
 
 	var wordcloud = $('#wordcloud');
