@@ -175,7 +175,7 @@ function getWordcloudWords()
 			printWordcloud();
 			sendResizeMessageToParent();
 			$("#wordcloudInput").tagsinput('removeAll');
-			console.log("Blank input box")
+			console.log("Remove previous tags")
 		},
 
 		complete: function () {
