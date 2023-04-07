@@ -295,8 +295,8 @@ function handleSend(event) {
 
 		complete: function () {
 			console.log('Finished all tasks');
-			$(".bootstrap-tagsinput").tagsinput('removeAll');
-			console.log("Remove previous tags now")
+// 			$(".bootstrap-tagsinput").tagsinput('removeAll');
+// 			console.log("Remove previous tags now")
 		}
 	});
 }
