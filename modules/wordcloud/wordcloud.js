@@ -269,8 +269,6 @@ function handleSend(event) {
 	console.log("Data trimmed: ", data);
 	data = data.replace(/\s+/g,"_");
 	console.log("Data finalised: ", data);
-	$(".bootstrap-tagsinput").tagsinput('removeAll');
-	console.log("Remove previous tags now")
 	var data2 =   encodeURIComponent( data );
 	var postData = "name="+data2;
 	console.log(postData);
@@ -299,4 +297,6 @@ function handleSend(event) {
 			console.log('Finished all tasks');
 		}
 	});
+	$(".bootstrap-tagsinput").tagsinput('removeAll');
+	console.log("Remove previous tags now")
 }
