@@ -34,14 +34,6 @@ $(document).ready(function(){
 		}
 	}
 	
-    // Add event listener to the form
-    var form = $('#wordcloudInput form');
-    if (form != null) {
-        form.on('submit', function(event) {
-            event.preventDefault();
-            handleSend(event);
-        });
-    }
 });
 
 // Send a resize message to the parent.
