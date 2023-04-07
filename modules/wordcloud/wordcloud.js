@@ -174,8 +174,8 @@ function getWordcloudWords()
 			});
 			printWordcloud();
 			sendResizeMessageToParent();
-			$(".bootstrap-tagsinput").tagsinput('removeAll');
-			console.log("Remove previous tags now")
+// 			$(".bootstrap-tagsinput").tagsinput('removeAll');
+// 			console.log("Remove previous tags now")
 		},
 
 		complete: function () {
@@ -256,7 +256,7 @@ function displayLoadingIcon()
 
 function handleSend(event) {
   displayLoadingIcon();
-  var data = $("#name").val();
+  var data = $("#wordcloudInput").val();
 	console.log("Raw data: ", data);
 	data = data.toLowerCase();
 	var dataArray = data.split(",");
