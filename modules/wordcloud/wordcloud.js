@@ -297,9 +297,11 @@ function handleSend(event) {
             console.log('Finished all tasks');
         }
     });
-    $(".bootstrap-tagsinput").tagsinput('removeAll');
-    console.log("Remove previous tags now");
+    $('#wordcloudInput').tagsinput('removeAll');
+    console.log("Remove the submission box once submitted")
+    //$(".bootstrap-tagsinput").tagsinput('removeAll');
+    //console.log("Remove previous tags now");
     // Clear the value of the #name input element
-    $("#name").val("");
-    console.log("previous data cleared")
+    //$("#name").val("");
+    //console.log("previous data cleared")
 }
