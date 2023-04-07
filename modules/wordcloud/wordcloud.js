@@ -253,11 +253,12 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
-  displayLoadingIcon();
-  var data = $("#name").val();
+	displayLoadingIcon();
+	var data = $("#name").val();
 	console.log("Raw data: ", data);
 	data = data.toLowerCase();
 	var dataArray = data.split(",");
+	
 	// Loop through the array and apply trim() to each element
 	for (var i = 0; i < dataArray.length; i++) {
 		dataArray[i] = dataArray[i].trim();
@@ -268,10 +269,11 @@ function handleSend(event) {
 	console.log("Data trimmed: ", data);
 	data = data.replace(/\s+/g,"_");
 	console.log("Data finalised: ", data);
-  var data2 =   encodeURIComponent( data );
-  var postData = "name="+data2;
+	$(".bootstrap-tagsinput").tagsinput('removeAll');
+	console.log("Remove previous tags now")
+	var data2 =   encodeURIComponent( data );
+	var postData = "name="+data2;
 	console.log(postData);
-
 	request = $.ajax({
 		url: actionScript,
 		type: "post",
@@ -295,8 +297,6 @@ function handleSend(event) {
 
 		complete: function () {
 			console.log('Finished all tasks');
-// 			$(".bootstrap-tagsinput").tagsinput('removeAll');
-// 			console.log("Remove previous tags now")
 		}
 	});
 }
