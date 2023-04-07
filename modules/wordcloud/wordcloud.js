@@ -252,8 +252,6 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
-    var data = "";
-    console.log("previous data deleted")
     displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
@@ -300,4 +298,7 @@ function handleSend(event) {
     });
     $(".bootstrap-tagsinput").tagsinput('removeAll');
     console.log("Remove previous tags now");
+    // Clear the value of the #name input element
+    $("#name").val("");
+    console.log("previous data cleared")
 }
