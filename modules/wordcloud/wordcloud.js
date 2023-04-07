@@ -182,8 +182,6 @@ function getWordcloudWords()
 	});
 }
 
-
-function printWordcloudInput(wordcloudInput)
 {
    html = '<input id="name" type="text" size="120" data-role="tagsinput"></input>';
    html +=' <button id="send" class="btn btn-primary">Submit</button>';
@@ -290,7 +288,8 @@ function handleSend(event) {
 		success: function (result) {
 			console.log("success");
 			$("#wordcloud").show();
-			$('#wordcloudInput').val('');
+			$('.bootstrap-tagsinput').val('');
+			console.log("Blank input box")
 			getWordcloudWords();
 		},
 
