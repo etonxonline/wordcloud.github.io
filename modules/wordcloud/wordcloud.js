@@ -252,6 +252,8 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
+    var data = "";
+    console.log("previous data deleted")
     displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
