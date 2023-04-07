@@ -174,6 +174,8 @@ function getWordcloudWords()
 			});
 			printWordcloud();
 			sendResizeMessageToParent();
+			$('.bootstrap-tagsinput').val('');
+			console.log("Blank input box")
 		},
 
 		complete: function () {
