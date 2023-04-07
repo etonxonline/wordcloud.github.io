@@ -272,7 +272,7 @@ function handleSend(event) {
 	console.log("Data finalised: ", data);
   var data2 =   encodeURIComponent( data );
   var postData = "name="+data2;
-	console.log(postData);
+	console.log('postdata = ', postData);
 
 	request = $.ajax({
 		url: actionScript,
