@@ -160,8 +160,8 @@ function getWordcloudWords() {
     })
     .then(function() {
         sendResizeMessageToParent();
-        $('.bootstrap-tagsinput').val('');
-        console.log("Blank input box")
+        $(".bootstrap-tagsinput").tagsinput('removeAll');
+        console.log("Empty input box")
     })
     .catch(function(error) {
         console.log(error);
