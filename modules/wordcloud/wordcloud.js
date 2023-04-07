@@ -19,7 +19,7 @@ $(document).ready(function(){
     var sendButton = $("#send");
     if(sendButton != null)
     {
-		sendButton.off('click').on('click', handleSend);
+		sendButton.click(handleSend);
     }
 
 	var wordcloud = $('#wordcloud');
