@@ -174,8 +174,8 @@ function getWordcloudWords()
 			});
 			printWordcloud();
 			sendResizeMessageToParent();
-			$("#wordcloudInput").tagsinput('removeAll');
-			console.log("Remove previous tags")
+			$(".bootstrap-tagsinput").tagsinput('removeAll');
+			console.log("Remove previous tags now")
 		},
 
 		complete: function () {
