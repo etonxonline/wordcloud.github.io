@@ -258,6 +258,7 @@ function getAllUrlParams(url) {
 // }
 
 function displayLoadingIcon() {
+  console.log("Should show now")
   $("#loading-icon").show();
 }
 
