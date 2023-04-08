@@ -13,12 +13,8 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 10")
-	if($( '.input-group' ).is(":visible")){
-              $( '.loading-icon' ).hide();
-         } else{
-              $( '.loading-icon' ).show();
-         }
+	console.log("Ready now 11")
+	$( '.loading-icon' ).hide();
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
@@ -273,6 +269,7 @@ function hideLoadingIcon() {
 
 
 function handleSend(event) {
+    $(".loading-icon").show();
     //displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
@@ -320,7 +317,7 @@ function handleSend(event) {
         }
     });
     $(".input-group").hide();
-    $(".loading-icon").show();
+   
     console.log("Remove the submission box once submitted")
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
     //console.log("Remove previous tags now");
