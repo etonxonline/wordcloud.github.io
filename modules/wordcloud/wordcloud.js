@@ -252,7 +252,7 @@ function getAllUrlParams(url) {
 
 function displayLoadingIcon()
 {
-  $("#wordcloud").html('<img width="30" src="loading2.gif"/>');
+  $("#wordcloud").html('<img width="30" src="loading.gif"/>');
 }
 
 function handleSend(event) {
@@ -300,9 +300,9 @@ function handleSend(event) {
             console.log('Finished all tasks');
         }
     });
+    displayLoadingIcon();
     $(".input-group").hide();
     console.log("Remove the submission box once submitted")
-    displayLoadingIcon();
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
     //console.log("Remove previous tags now");
     // Clear the value of the #name input element
