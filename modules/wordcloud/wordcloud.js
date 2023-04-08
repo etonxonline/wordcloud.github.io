@@ -302,6 +302,7 @@ function handleSend(event) {
     });
     $(".input-group").hide();
     console.log("Remove the submission box once submitted")
+    displayLoadingIcon();
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
     //console.log("Remove previous tags now");
     // Clear the value of the #name input element
