@@ -111,7 +111,6 @@ function printWordcloud()
 function getWordcloudWords()
 {
 	words = [];
-    displayLoadingIcon();
 
 	$.ajax({
 		url: actionScript,
@@ -256,7 +255,6 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
-    displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
     data = data.toLowerCase();
@@ -300,7 +298,6 @@ function handleSend(event) {
             console.log('Finished all tasks');
         }
     });
-    displayLoadingIcon();
     $(".input-group").hide();
     console.log("Remove the submission box once submitted")
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
