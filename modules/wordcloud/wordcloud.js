@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 2")
+	console.log("Ready now 3")
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
@@ -268,7 +268,7 @@ function hideLoadingIcon() {
 
 
 function handleSend(event) {
-    $("#loading-icon").show();
+    $(".loading-icon").show();
     //displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
