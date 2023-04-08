@@ -255,7 +255,7 @@ function displayLoadingIcon()
 }
 
 function handleSend(event) {
-    displayLoadingIcon()
+    
     var data = $("#name").val();
     console.log("Raw data: ", data);
     data = data.toLowerCase();
@@ -280,7 +280,8 @@ function handleSend(event) {
         data: postData,
 
         beforeSend: function () {
-            console.log("Loading");
+            console.log("Loading new");
+	    displayLoadingIcon();
         },
 
         error: function (jqXHR, textStatus, errorThrown) {
