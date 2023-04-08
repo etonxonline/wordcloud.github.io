@@ -284,7 +284,7 @@ function handleSend(event) {
         data: postData,
 
         beforeSend: function () {
-            console.log("Loading newest");
+            console.log("Loading newest 2");
 	    
         },
 
