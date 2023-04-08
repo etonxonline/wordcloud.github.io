@@ -4,6 +4,9 @@
 var params = getAllUrlParams(window.location.href);
 var actionScript = params.scriptUrl;
 var hide = false;
+var loadingImg = new Image();
+loadingImg.src = "loading.gif";
+
 if (params.hide != null)
 {
 	hide = true;
