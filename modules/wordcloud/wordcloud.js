@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 7")
+	console.log("Ready now 8")
 	if($( '.input-group' ).is(":visible")){
               $( '.loading-icon' ).show();
          } else{
