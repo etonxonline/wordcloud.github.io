@@ -13,8 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	var loadingImg = new Image();
-	loadingImg.src = "loading.gif";
+	hideLoadingIcon();
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
@@ -249,14 +248,23 @@ function getAllUrlParams(url) {
   return obj;
 }
 
-function displayLoadingIcon()
-{
-  var loadingImg = new Image();
-  loadingImg.onload = function() {
-    $("#wordcloud").html('<img width="30" src="loading.gif"/>');
-  }
-  loadingImg.src = "loading.gif";
+// function displayLoadingIcon()
+// {
+//   var loadingImg = new Image();
+//   loadingImg.onload = function() {
+//     $("#wordcloud").html('<img width="30" src="loading.gif"/>');
+//   }
+//   loadingImg.src = "loading.gif";
+// }
+
+function displayLoadingIcon() {
+  $("#loading-icon").show();
 }
+
+function hideLoadingIcon() {
+  $("#loading-icon").hide();
+}
+
 
 function handleSend(event) {
     displayLoadingIcon();
@@ -296,6 +304,7 @@ function handleSend(event) {
 
         success: function (result) {
             console.log("success");
+	    hideLoadingIcon();
             $("#wordcloud").show();
             getWordcloudWords(printWordcloud);
         },
