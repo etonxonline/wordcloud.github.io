@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 12")
+	console.log("Ready now 13")
 	//$( '.loading-icon' ).hide();
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
@@ -259,8 +259,7 @@ function getAllUrlParams(url) {
 // }
 
 function displayLoadingIcon() {
-  console.log("Should show now")
-  $(".loading-icon").show();
+  $(".loading-icon").addClass("show");
 }
 
 function hideLoadingIcon() {
@@ -269,8 +268,7 @@ function hideLoadingIcon() {
 
 
 function handleSend(event) {
-    $(".loading-icon").show();
-    //displayLoadingIcon();
+    displayLoadingIcon()
     var data = $("#name").val();
     console.log("Raw data: ", data);
     data = data.toLowerCase();
