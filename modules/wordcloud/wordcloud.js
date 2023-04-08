@@ -15,7 +15,7 @@ var words = [];
 $(document).ready(function(){
 	console.log("Ready now 7")
 	if($( '.input-group' ).is(":visible")){
-              $( '.loading-icon' ).hide();
+              $( '.loading-icon' ).show();
          } else{
               $( '.loading-icon' ).show();
          }
