@@ -268,7 +268,8 @@ function hideLoadingIcon() {
 
 
 function handleSend(event) {
-    displayLoadingIcon();
+    $("#loading-icon").show();
+    //displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
     data = data.toLowerCase();
