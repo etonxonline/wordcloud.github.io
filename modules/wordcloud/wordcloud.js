@@ -252,7 +252,7 @@ function getAllUrlParams(url) {
 
 function displayLoadingIcon()
 {
-  $("#wordcloud").html('<img width="30" src="loading.gif"/>');
+  $("#wordcloud").html('<img width="30" src="loading2.gif"/>');
 }
 
 function handleSend(event) {
