@@ -14,6 +14,11 @@ var words = [];
 
 $(document).ready(function(){
 	console.log("Ready now 6")
+	if($( '.input-group' ).is(":visible")){
+              $( '.loading-icon' ).hide();
+         } else{
+              $( '.loading-icon' ).show();
+         }
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
