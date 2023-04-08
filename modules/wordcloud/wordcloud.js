@@ -13,8 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	hideLoadingIcon();
-	console.log("Ready")
+	console.log("Ready now")
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
@@ -305,7 +304,7 @@ function handleSend(event) {
 
         success: function (result) {
             console.log("success");
-	    hideLoadingIcon();
+	    //hideLoadingIcon();
             $("#wordcloud").show();
             getWordcloudWords(printWordcloud);
         },
