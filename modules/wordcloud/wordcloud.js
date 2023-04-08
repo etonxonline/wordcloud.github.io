@@ -13,9 +13,9 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 8")
+	console.log("Ready now 9")
 	if($( '.input-group' ).is(":visible")){
-              $( '.loading-icon' ).show();
+              $( '.loading-icon' ).hide();
          } else{
               $( '.loading-icon' ).show();
          }
@@ -273,8 +273,7 @@ function hideLoadingIcon() {
 
 
 function handleSend(event) {
-    
-    displayLoadingIcon();
+    //displayLoadingIcon();
     var data = $("#name").val();
     console.log("Raw data: ", data);
     data = data.toLowerCase();
@@ -321,6 +320,7 @@ function handleSend(event) {
         }
     });
     $(".input-group").hide();
+    $(".loading-icon").show();
     console.log("Remove the submission box once submitted")
     //$(".bootstrap-tagsinput").tagsinput('removeAll');
     //console.log("Remove previous tags now");
