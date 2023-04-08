@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 5")
+	console.log("Ready now 6")
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
 		printWordcloudInput(wordcloudInput);
