@@ -18,7 +18,7 @@ $(document).ready(function(){
 	iframe.addEventListener("load", function() {
 		iframe.setAttribute("frameborder", "0");
 		iframe.setAttribute("scrolling", "no");
-	}
+	})
 	hideLoadingIcon()
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
