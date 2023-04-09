@@ -13,7 +13,11 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 19")
+	var iframe = document.getElementById("wordcloud-iframe");
+	var iframeDoc = iframe.contentWindow.document;
+	iframeDoc.body.style.overflow = "hidden"; // disable scrolling
+	iframe.style.border = "none"; // remove the border
+	console.log("Ready now 20")
 	hideLoadingIcon()
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
