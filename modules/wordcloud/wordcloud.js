@@ -14,10 +14,9 @@ var words = [];
 
 $(document).ready(function(){
 	var iframe = document.getElementById("wordcloud-iframe");
-	var iframeDoc = iframe.contentWindow.document;
-	iframeDoc.body.style.overflow = "hidden"; // disable scrolling
-	iframe.style.border = "none"; // remove the border
-	console.log("Ready now 20")
+	iframe.setAttribute("frameborder", "0");
+	iframe.setAttribute("scrolling", "no");
+	console.log("Ready now 21")
 	hideLoadingIcon()
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
