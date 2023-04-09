@@ -13,10 +13,12 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	var iframe = document.getElementById("wordcloud-iframe");
-	iframe.setAttribute("frameborder", "0");
-	iframe.setAttribute("scrolling", "no");
 	console.log("Ready now 21")
+	var iframe = document.getElementById("wordcloud-iframe");
+	iframe.addEventListener("load", function() {
+		iframe.setAttribute("frameborder", "0");
+		iframe.setAttribute("scrolling", "no");
+	}
 	hideLoadingIcon()
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
