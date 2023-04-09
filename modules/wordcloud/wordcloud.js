@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 18")
+	console.log("Ready now 19")
 	hideLoadingIcon()
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
@@ -305,13 +305,13 @@ function handleSend(event) {
 
         success: function (result) {
             console.log("success");
-	    hideLoadingIcon();
             $("#wordcloud").show();
             getWordcloudWords(printWordcloud);
         },
 
         complete: function () {
             console.log('Finished all tasks');
+	    hideLoadingIcon();
         }
     });
     $(".input-group").hide();
