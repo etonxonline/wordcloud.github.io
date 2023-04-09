@@ -305,7 +305,7 @@ function handleSend(event) {
 
         success: function (result) {
             console.log("success");
-	    //hideLoadingIcon();
+	    hideLoadingIcon();
             $("#wordcloud").show();
             getWordcloudWords(printWordcloud);
         },
