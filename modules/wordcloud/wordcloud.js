@@ -13,7 +13,7 @@ if (params.hide != null)
 var words = [];
 
 $(document).ready(function(){
-	console.log("Ready now 15")
+	console.log("Ready now 16")
 	//$( '.loading-icon' ).hide();
 	var wordcloudInput = $('#wordcloudInput');
 	if (wordcloudInput !=  null) {
@@ -259,7 +259,7 @@ function getAllUrlParams(url) {
 // }
 
 function displayLoadingIcon() {
-  $(".loading-icon").addClass("show");
+  $(".loading-icon").show();
 }
 
 function hideLoadingIcon() {
